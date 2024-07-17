@@ -1,3 +1,4 @@
+// Login.js
 import React, { useContext, useState } from "react";
 import { FirebaseContext } from "../../store/Context";
 import { useHistory } from "react-router-dom";
@@ -10,12 +11,11 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
-  const { firebase } = useContext(FirebaseContext);
+  const { auth } = useContext(FirebaseContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    firebase
-      .auth()
+    auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         history.push("/"); // Navigate to homepage after successful login

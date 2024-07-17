@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
-import {} from "./store/Context";
 import "./App.css";
 import { AutheContext } from "./store/Context";
 
@@ -15,7 +14,7 @@ function App() {
   const { user } = useContext(AutheContext);
   useEffect(() => {
     console.log(user);
-  });
+  }, [user]);
   return (
     <div>
       <Router>

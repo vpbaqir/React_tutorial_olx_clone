@@ -1,15 +1,19 @@
-export const AutheContext = createContext(null);
-import { firebaseConfig } from "../firebase/config";
 import React, { createContext, useState } from "react";
-import { firebaseAuth } from "../"; // Make sure to properly initialize firebaseAuth
-export const FirebaseContext = createContext();
+import { firebaseConfig, FirebaseAuth } from "../firebase/Config"; // Ensure this path and case is correct
 
-export default Context = ({ children }) => {
-  const [user, setUser] = useState("hello");
+export const AutheContext = createContext(null);
+export const FirebaseContext = createContext(null);
+
+const Context = ({ children }) => {
+  const [user, setUser] = useState(null);
 
   return (
-    <FirebaseContext.Provider value={{ user }}>
-      {children}
+    <FirebaseContext.Provider value={{ FirebaseAuth, firebaseConfig }}>
+      <AutheContext.Provider value={{ user, setUser }}>
+        {children}
+      </AutheContext.Provider>
     </FirebaseContext.Provider>
   );
 };
+export { firebaseConfig, FirebaseAuth };
+export default Context;
