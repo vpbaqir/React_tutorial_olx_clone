@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FirebaseContext } from "../../store/FirebaseContext";
+import { FirebaseContext } from "../../store/Context";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom"; // Import Link for navigation
 
